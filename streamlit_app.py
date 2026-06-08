@@ -1,4 +1,5 @@
 # Import python packages
+import requests 
 import streamlit as st
 from snowflake.snowpark.functions import col
 
@@ -19,7 +20,6 @@ my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT
 name_on_order = st.text_input("Name on Smoothie:")
 st.write("The name on the Smoothie will be: ", name_on_order)
 
-import requests  
 smoothiefroot_response = requests.get("[https://my.smoothiefroot.com/api/fruit/watermelon](https://my.smoothiefroot.com/api/fruit/watermelon)")  
 st.text(smoothiefroot_response)
 
